@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
 
-n=10
-counter=1
+n=1
 
-while [ "$counter" -le "$n" ]
+while [ "$n" -le 10 ]
 do
 	echo "Best School"
-	((counter++))
+	((n++))
 done
