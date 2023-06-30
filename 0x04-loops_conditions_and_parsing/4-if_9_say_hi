@@ -5,9 +5,9 @@ n=10
 
 for ((i=1; i<=n; i++))
 do
-	if [ i -eq 9 ]
+	if [ $i -eq 10 ]
 	then
 		echo "Hi"
-	done
+	fi
 	echo "Best School"
 done
