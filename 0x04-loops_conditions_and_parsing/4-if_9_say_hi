@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times and Hi the 9th time
 
-n=10
+n=1
 
-for ((i=1; i<=n; i++))
+while [ "$n" -le 10 ]
 do
-	if [ $i -eq 10 ]
+	if [ "$n" -eq 10 ]
 	then
 		echo "Hi"
 	fi
 	echo "Best School"
+	((n++))
 done
