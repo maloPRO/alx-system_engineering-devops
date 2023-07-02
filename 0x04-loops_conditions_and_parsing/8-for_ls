@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script is displaying directory contents
+for file in *; do
+    if [ -f "$file" ] && [[ $file != .* ]]; then
+        name=$(echo "$file" | cut -d'-' -f2-)
+        echo "$name"
+    fi
+done
+
