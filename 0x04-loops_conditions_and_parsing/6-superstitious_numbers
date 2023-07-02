@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script displays numbers from 1 to 20
+
+n=1
+
+while [ "$n" -le 20 ]
+do
+	if [ "$n" -eq 4 ]
+	then
+		echo "bad luck from China"
+	elif [ "$n" -eq 9 ]
+	then
+		echo "bad luck from Japan"
+	elif [ "$n" -eq 17 ]
+	then
+		echo "bad luck from Italy"
+	else
+		echo "$n"
+	fi
+
+	((n++))
+done	
