@@ -19,5 +19,6 @@ do
 			echo "$n"
 			;;
 	esac
+
 	((n++))
 done	
