@@ -1,6 +1,25 @@
 #!/usr/bin/env bash
 
-sudo apt update
-sudo apt-get install -y nginx
-sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
-echo "Hello World!" | sudo tee /var/www/html/index.html
+##Update the package index
+sudo apt-get update
+
+## Install Nginx
+sudo apt-get install nginx -y
+
+## Configure Nginx
+echo "server {
+        listen 80 default_server;
+        root /var/www/html;
+        index index.html;
+
+        server_name _;
+
+        location / {
+                # Return Hello World! as the response
+                echo 'Hello World!';
+        }
+}" | sudo tee /etc/nginx/sites-available/default
+
+# Restart Nginx
+sudo /etc/init.d/nginx restart
+
