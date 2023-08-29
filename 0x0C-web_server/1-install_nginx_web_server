@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
+# Installs and configures Nginx in web server Nginx
 
-# update package list
 sudo apt update
 
-# Install Nginx
 sudo apt install -y nginx
 
-# Configure Nginx to return "Hello World!" at root
 echo 'server {
     listen 80;
     server_name _;
@@ -16,15 +14,11 @@ echo 'server {
     }
 }' | sudo tee /etc/nginx/sites-available/hello-world > /dev/null
 
-# Enable the new configuration
 sudo ln -s /etc/nginx/sites-available/hello-world /etc/nginx/sites-enabled/
 
-# Remove default Nginx configuration
 sudo rm /etc/nginx/sites-enabled/default
 
-# Test Nginx configuration
 sudo nginx -t
 
-# Restart Nginx
 sudo /etc/init.d/nginx restart
 
