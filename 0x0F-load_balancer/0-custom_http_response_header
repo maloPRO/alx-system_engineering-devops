@@ -17,7 +17,7 @@ echo "Hello world!" | sudo tee /usr/share/nginx/html/index.html
 sudo sed -i "30i $ADD301_REDIRECT" /etc/nginx/sites-available/default
 
 # Any page that errors shows this new custom_404.html page
-echo "AM TECHRIZ" | sudo tee /usr/share/nginx/html/custom_404.html
+echo "AM MALOPRO" | sudo tee /usr/share/nginx/html/custom_404.html
 sudo sed -i "s@$PATTERN@$ADD404_NOTFOUND@" /etc/nginx/sites-available/default
 
 # Header is updated (add_header to file)
