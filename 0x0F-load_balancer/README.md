@@ -1,2 +1,0 @@
-
-ad_balancer
