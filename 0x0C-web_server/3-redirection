@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Redirects
+
+sudo apt-get update
+sudo apt-get install nginx
+
+sudo sh -c 'echo "
+server {
+    listen 80;
+
+    location / {
+        return 200 \"Hello World!\";
+    }
+
+    location /redirect_me {
+        return 301 http://example.com/new-page;
+    }
+}" > /etc/nginx/sites-available/default'
+
+sudo service nginx restart
