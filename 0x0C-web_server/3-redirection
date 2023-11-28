@@ -2,7 +2,7 @@
 # Redirects
 
 sudo apt-get update
-sudo apt-get -y install nginx
+sudo apt-get install -y nginx
 
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 
