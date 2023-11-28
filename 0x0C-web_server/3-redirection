@@ -2,19 +2,16 @@
 # Redirects
 
 sudo apt-get update
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 
-sudo sh -c 'echo "
-server {
-    listen 80;
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 
-    location / {
-        return 200 \"Hello World!\";
-    }
-
-    location /redirect_me {
+sudo sed -i '/location \/ {/a \
+\
+    location /redirect_me {\
         return 301 http://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }
-}" > /etc/nginx/sites-available/default'
+    }' /etc/nginx/sites-available/default
+
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 
 sudo service nginx restart
