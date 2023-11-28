@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
 # Redirects
 
-sudo apt-get update
-sudo apt-get install -y nginx
 
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+sudo apt update
+sudo apt install -y nginx
 
-sudo sed -i '/location \/ {/a \
-\
-    location /redirect_me {\
-        return 301 http://www.youtube.com/watch?v=QH2-TGUlwu4;
-    }' /etc/nginx/sites-available/default
+redirect_url="https://www.youtube.com/watch?v=QH2-TGUlwu4"
 
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo sed -i.bak '/location \/redirect_me {/!b;n;c\        return 301 '"$redirect_url"';' /etc/nginx/sites-available/default
 
 sudo service nginx restart
